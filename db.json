@@ -1,0 +1,420 @@
+{
+  "customers": [
+    {
+      "id": "d7a2",
+      "name": "علي محمد",
+      "email": "ali@gmail.com",
+      "phone": "01000511969",
+      "password": "2054520",
+      "role": "owner",
+      "subscription_plan": "premium",
+      "subscription_status": "active",
+      "subscription_start": "2025-11-18T14:38:35.474Z",
+      "subscription_end": "2026-01-19T15:50:46.507Z",
+      "status": "active",
+      "created_at": "2025-11-18T14:38:35.474Z"
+    },
+    {
+      "id": "cust2",
+      "name": "أحمد حسن",
+      "email": "ahmed@gmail.com",
+      "phone": "01012345678",
+      "password": "password123",
+      "role": "owner",
+      "subscription_plan": "standard",
+      "subscription_status": "active",
+      "status": "active",
+      "created_at": "2025-10-15T10:00:00.000Z"
+    },
+    {
+      "id": "cust3",
+      "name": "محمود سعيد",
+      "email": "mahmoud@gmail.com",
+      "phone": "01098765432",
+      "password": "password123",
+      "role": "owner",
+      "subscription_plan": "basic",
+      "subscription_status": "active",
+      "status": "active",
+      "created_at": "2025-09-20T12:00:00.000Z"
+    },
+    {
+      "id": "cust4",
+      "name": "سارة علي",
+      "email": "sara@gmail.com",
+      "phone": "01155443322",
+      "password": "password123",
+      "role": "owner",
+      "subscription_plan": "premium",
+      "subscription_status": "active",
+      "status": "active",
+      "created_at": "2025-08-10T09:00:00.000Z"
+    },
+    {
+      "id": "cust5",
+      "name": "خالد عبدالله",
+      "email": "khaled@gmail.com",
+      "phone": "01266778899",
+      "password": "password123",
+      "role": "owner",
+      "subscription_plan": "enterprise",
+      "subscription_status": "active",
+      "status": "active",
+      "created_at": "2025-07-05T08:00:00.000Z"
+    }
+  ],
+  "buildings": [
+    {
+      "id": "06fa",
+      "customer_id": "d7a2",
+      "name": "عمارة شبرا",
+      "address": "شبرا",
+      "city": "القاهرة",
+      "floors": 1,
+      "units_count": 50,
+      "year_built": 2025,
+      "building_type": "residential",
+      "status": "active"
+    },
+    {
+      "id": "04b3",
+      "name": "عمارة الفيروز",
+      "address": "المهندسين",
+      "city": "القاهرة",
+      "floors": 10,
+      "units_count": 60,
+      "customer_id": "cust2"
+    },
+    {
+      "id": "bld3",
+      "name": "عمارة النخيل",
+      "address": "مدينة نصر",
+      "city": "القاهرة",
+      "floors": 8,
+      "units_count": 40,
+      "customer_id": "cust3"
+    },
+    {
+      "id": "bld4",
+      "name": "عمارة الزهراء",
+      "address": "الزمالك",
+      "city": "القاهرة",
+      "floors": 12,
+      "units_count": 48,
+      "customer_id": "cust4"
+    },
+    {
+      "id": "bld5",
+      "name": "عمارة السلام",
+      "address": "المعادي",
+      "city": "القاهرة",
+      "floors": 15,
+      "units_count": 75,
+      "customer_id": "cust4"
+    },
+    {
+      "id": "bld6",
+      "name": "برج الياسمين",
+      "address": "التجمع الخامس",
+      "city": "القاهرة",
+      "floors": 20,
+      "units_count": 120,
+      "customer_id": "cust5"
+    },
+    {
+      "id": "bld7",
+      "name": "برج النيل",
+      "address": "المنيل",
+      "city": "القاهرة",
+      "floors": 18,
+      "units_count": 90,
+      "customer_id": "cust5"
+    },
+    {
+      "id": "bld8",
+      "name": "مجمع الأندلس",
+      "address": "6 أكتوبر",
+      "city": "الجيزة",
+      "floors": 10,
+      "units_count": 80,
+      "customer_id": "cust5"
+    }
+  ],
+  "units": [
+    {
+      "id": "9166",
+      "building_id": "06fa",
+      "unit_number": "1",
+      "floor": 1,
+      "unit_type": "apartment",
+      "area": 120,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "monthly_fee": 250,
+      "status": "vacant",
+      "description": "",
+      "owner_name": "",
+      "owner_phone": "",
+      "owner_email": "",
+      "owner_id_number": "",
+      "owner_notes": ""
+    },
+    {
+      "id": "unit2",
+      "building_id": "04b3",
+      "unit_number": "101",
+      "floor": 1,
+      "unit_type": "apartment",
+      "area": 150,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "rent_amount": 8000,
+      "status": "occupied",
+      "owner_name": "محمد أحمد",
+      "owner_phone": "01012345678"
+    },
+    {
+      "id": "unit3",
+      "building_id": "04b3",
+      "unit_number": "102",
+      "floor": 1,
+      "unit_type": "apartment",
+      "area": 120,
+      "bedrooms": 2,
+      "bathrooms": 1,
+      "rent_amount": 6500,
+      "status": "occupied",
+      "owner_name": "فاطمة علي",
+      "owner_phone": "01098765432"
+    },
+    {
+      "id": "unit4",
+      "building_id": "04b3",
+      "unit_number": "201",
+      "floor": 2,
+      "unit_type": "apartment",
+      "area": 140,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "rent_amount": 7500,
+      "status": "vacant"
+    }
+  ],
+  "unit_owners": [],
+  "service_types": [
+    {
+      "id": "st1",
+      "name": "فاتورة الكهرباء",
+      "icon": "⚡",
+      "color": "#fbbf24"
+    },
+    {
+      "id": "st2",
+      "name": "فاتورة المياه",
+      "icon": "💧",
+      "color": "#3b82f6"
+    },
+    {
+      "id": "st3",
+      "name": "صيانة المصعد",
+      "icon": "🏢",
+      "color": "#8b5cf6"
+    },
+    {
+      "id": "st4",
+      "name": "صيانة ماتور المياه",
+      "icon": "🔧",
+      "color": "#10b981"
+    },
+    {
+      "id": "st5",
+      "name": "صيانة الكهرباء",
+      "icon": "⚙️",
+      "color": "#f59e0b"
+    },
+    {
+      "id": "st6",
+      "name": "النظافة",
+      "icon": "🧹",
+      "color": "#06b6d4"
+    },
+    {
+      "id": "st7",
+      "name": "الأمن والحراسة",
+      "icon": "🛡️",
+      "color": "#ef4444"
+    },
+    {
+      "id": "st8",
+      "name": "الصيانة العامة",
+      "icon": "🔨",
+      "color": "#84cc16"
+    }
+  ],
+  "service_invoices": [
+    {
+      "id": "003e",
+      "building_id": "06fa",
+      "service_type_id": "st4",
+      "amount": 250,
+      "billing_period": "2025-11-19",
+      "status": "paid",
+      "notes": "",
+      "customer_id": "admin1",
+      "invoice_number": "INV-202511-5088",
+      "issue_date": "2025-11-19T18:18:32.486Z"
+    }
+  ],
+  "payments": [],
+  "monthly_subscriptions": [
+    {
+      "id": "sub1",
+      "building_id": "06fa",
+      "unit_id": "9166",
+      "customer_id": "d7a2",
+      "amount": 15000,
+      "month": "2025-11",
+      "due_date": "2025-11-01",
+      "status": "paid",
+      "paid_date": "2025-11-05",
+      "payment_method": "cash"
+    },
+    {
+      "id": "sub2",
+      "building_id": "06fa",
+      "unit_id": "9166",
+      "customer_id": "d7a2",
+      "amount": 15000,
+      "month": "2025-12",
+      "due_date": "2025-12-01",
+      "status": "pending"
+    },
+    {
+      "id": "sub3",
+      "building_id": "04b3",
+      "customer_id": "admin1",
+      "amount": 25000,
+      "month": "2025-11",
+      "due_date": "2025-11-01",
+      "status": "paid",
+      "paid_date": "2025-11-03",
+      "payment_method": "bank_transfer"
+    },
+    {
+      "id": "sub4",
+      "building_id": "04b3",
+      "customer_id": "admin1",
+      "amount": 25000,
+      "month": "2025-12",
+      "due_date": "2025-12-01",
+      "status": "pending"
+    }
+  ],
+  "maintenance_requests": [],
+  "building_users": [
+    {
+      "id": "admin1",
+      "customer_id": "d7a2",
+      "name": "Ali - System Admin",
+      "email": "ali.gym85@gmail.com",
+      "phone": "01000511969",
+      "password": "2054520",
+      "role": "admin",
+      "building_id": "",
+      "status": "active",
+      "created_at": "2025-11-18T00:00:00.000Z"
+    },
+    {
+      "id": "2690",
+      "name": "ali",
+      "email": "ali@gmail.com",
+      "phone": "01000511969",
+      "password": "2054520",
+      "role": "manager",
+      "building_id": "06fa",
+      "customer_id": "admin1",
+      "status": "active",
+      "created_at": "2025-11-19T18:21:13.309Z"
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": "sub1",
+      "customer_id": "d7a2",
+      "plan": "premium",
+      "amount": 500,
+      "currency": "EGP",
+      "start_date": "2025-11-19T15:50:46.507Z",
+      "end_date": "2026-01-19T15:50:46.507Z",
+      "status": "active",
+      "auto_renew": true,
+      "payment_method": "cash",
+      "paid_at": "2025-11-19T15:50:46.507Z"
+    },
+    {
+      "id": "sub2",
+      "customer_id": "cust2",
+      "plan": "standard",
+      "amount": 300,
+      "currency": "EGP",
+      "start_date": "2025-10-15T10:00:00.000Z",
+      "end_date": "2025-12-15T10:00:00.000Z",
+      "status": "active",
+      "auto_renew": true,
+      "payment_method": "bank_transfer",
+      "paid_at": "2025-10-15T10:00:00.000Z"
+    },
+    {
+      "id": "sub3",
+      "customer_id": "cust3",
+      "plan": "basic",
+      "amount": 200,
+      "currency": "EGP",
+      "start_date": "2025-09-20T12:00:00.000Z",
+      "end_date": "2025-11-20T12:00:00.000Z",
+      "status": "active",
+      "auto_renew": false,
+      "payment_method": "cash",
+      "paid_at": "2025-09-20T12:00:00.000Z"
+    },
+    {
+      "id": "sub4",
+      "customer_id": "cust4",
+      "plan": "premium",
+      "amount": 500,
+      "currency": "EGP",
+      "start_date": "2025-08-10T09:00:00.000Z",
+      "end_date": "2025-11-10T09:00:00.000Z",
+      "status": "active",
+      "auto_renew": true,
+      "payment_method": "credit_card",
+      "paid_at": "2025-08-10T09:00:00.000Z"
+    },
+    {
+      "id": "sub5",
+      "customer_id": "cust5",
+      "plan": "enterprise",
+      "amount": 1200,
+      "currency": "EGP",
+      "start_date": "2025-07-05T08:00:00.000Z",
+      "end_date": "2026-07-05T08:00:00.000Z",
+      "status": "active",
+      "auto_renew": true,
+      "payment_method": "bank_transfer",
+      "paid_at": "2025-07-05T08:00:00.000Z"
+    },
+    {
+      "id": "sub6",
+      "customer_id": "cust3",
+      "plan": "basic",
+      "amount": 200,
+      "currency": "EGP",
+      "start_date": "2025-07-20T12:00:00.000Z",
+      "end_date": "2025-09-20T12:00:00.000Z",
+      "status": "expired",
+      "auto_renew": false,
+      "payment_method": "cash",
+      "paid_at": "2025-07-20T12:00:00.000Z"
+    }
+  ]
+}
