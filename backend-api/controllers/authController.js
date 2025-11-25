@@ -64,7 +64,7 @@ const register = async (req, res) => {
 };
 
 /**
- * Login customer
+ * Login customer or admin
  */
 const login = async (req, res) => {
   const { email, password } = req.body;
@@ -77,31 +77,52 @@ const login = async (req, res) => {
     });
   }
 
-  // Find customer
-  const [customers] = await db.query(
-    'SELECT * FROM customers WHERE email = ?',
+  let user = null;
+  let userRole = 'customer';
+
+  // First try to find in admins table
+  const [admins] = await db.query(
+    'SELECT * FROM admins WHERE email = ?',
     [email]
   );
 
-  if (customers.length === 0) {
-    return res.status(401).json({
-      success: false,
-      message: 'بيانات الدخول غير صحيحة'
-    });
-  }
+  if (admins.length > 0) {
+    user = admins[0];
+    userRole = 'admin';
+  } else {
+    // If not admin, try customers
+    const [customers] = await db.query(
+      'SELECT * FROM customers WHERE email = ?',
+      [email]
+    );
 
-  const customer = customers[0];
+    if (customers.length === 0) {
+      return res.status(401).json({
+        success: false,
+        message: 'بيانات الدخول غير صحيحة'
+      });
+    }
 
-  // Check if account is active
-  if (customer.status !== 'active') {
-    return res.status(403).json({
-      success: false,
-      message: 'حسابك معطل. يرجى التواصل مع الدعم'
-    });
+    user = customers[0];
+
+    // Check if customer account is active
+    if (user.status !== 'active') {
+      return res.status(403).json({
+        success: false,
+        message: 'حسابك معطل. يرجى التواصل مع الدعم'
+      });
+    }
   }
 
   // Verify password
-  const isMatch = await comparePassword(password, user.password);
+  let isMatch = false;
+  try {
+    // Try bcrypt comparison first
+    isMatch = await comparePassword(password, user.password);
+  } catch (error) {
+    // If bcrypt fails, try plain text comparison
+    isMatch = password === user.password;
+  }
 
   if (!isMatch) {
     return res.status(401).json({
@@ -110,24 +131,26 @@ const login = async (req, res) => {
     });
   }
 
-  // Check subscription
-  const [subscriptions] = await db.query(
-    `SELECT * FROM subscriptions 
-     WHERE user_id = ? 
-     AND status = 'active' 
-     AND end_date > NOW() 
-     ORDER BY end_date DESC 
-     LIMIT 1`,
-    [user.id]
-  );
-
-  const hasActiveSubscription = subscriptions.length > 0;
+  // For customers, check subscription
+  let hasActiveSubscription = true; // Admins always have access
+  if (userRole === 'customer') {
+    const [subscriptions] = await db.query(
+      `SELECT * FROM subscriptions 
+       WHERE user_id = ? 
+       AND status = 'active' 
+       AND end_date > NOW() 
+       ORDER BY end_date DESC 
+       LIMIT 1`,
+      [user.id]
+    );
+    hasActiveSubscription = subscriptions.length > 0;
+  }
 
   // Generate token
   const token = generateToken({
     id: user.id,
     email: user.email,
-    role: user.role,
+    role: userRole,
     hasSubscription: hasActiveSubscription
   });
 
@@ -139,8 +162,8 @@ const login = async (req, res) => {
         id: user.id,
         name: user.name,
         email: user.email,
-        phone: user.phone,
-        role: user.role,
+        phone: user.phone || null,
+        role: userRole,
         hasSubscription: hasActiveSubscription
       },
       token
